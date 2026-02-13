@@ -44,25 +44,14 @@ It includes:
    docker-compose up -d
    ```
 
-The server will be available at `http://localhost:8000`.
+The server will be available at `http://localhost:8607`.
 
 ## Usage with MCP Clients
 
-This server uses the **SSE (Server-Sent Events)** transport.
+### GeminiCLI configuration
 
-### Claude Desktop Configuration
-
-Claude Desktop supports SSE. Add the following to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "nextcloud": {
-      "url": "http://localhost:8000/mcp"
-    }
-  }
-}
-```
+gemini mcp add nextcloud http://localhost:8607/mcp --transport http --header "X-API-Key: <your-api-key>
+28683de0" --scope user
 
 **Note on Authentication:**
 If you are using the Caddy proxy with `MCP_API_KEY`, ensure your client is capable of sending the `X-API-Key` header. If your client does not support custom headers for SSE, you may need to disable authentication in `Caddyfile` or use a local unauthenticated connection if the client is on the same machine.
@@ -74,7 +63,7 @@ Alternatively, you can use a wrapper script that adds the header.
 You can test the connection using `curl`:
 
 ```bash
-curl -H "X-API-Key: YOUR_MCP_API_KEY" http://localhost:8000/mcp
+curl -H "X-API-Key: YOUR_MCP_API_KEY" http://localhost:8607/mcp
 ```
 
 ## Security

@@ -58,7 +58,7 @@ Claude Desktop supports SSE. Add the following to your `claude_desktop_config.js
 {
   "mcpServers": {
     "nextcloud": {
-      "url": "http://localhost:8000/sse"
+      "url": "http://localhost:8000/mcp"
     }
   }
 }
@@ -74,7 +74,7 @@ Alternatively, you can use a wrapper script that adds the header.
 You can test the connection using `curl`:
 
 ```bash
-curl -H "X-API-Key: YOUR_MCP_API_KEY" http://localhost:8000/sse
+curl -H "X-API-Key: YOUR_MCP_API_KEY" http://localhost:8000/mcp
 ```
 
 ## Security

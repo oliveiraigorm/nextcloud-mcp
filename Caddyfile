@@ -1,0 +1,8 @@
+:8000 {
+    @auth {
+        not header X-API-Key {$MCP_API_KEY}
+    }
+    respond @auth "Unauthorized" 401
+    
+    reverse_proxy nextcloud-mcp:8000
+}
